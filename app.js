@@ -8,6 +8,7 @@ document.getElementById('add').addEventListener('click', function(){
     UL.appendChild(list);
 })
 
+
 // Minus button eventListener
 document.getElementById('laptop-minus').addEventListener('click',function(){
     const laptopCount = document.getElementById('laptop-count')
@@ -36,3 +37,33 @@ document.getElementById('laptop-plus').addEventListener('click',function(){
         document.getElementById('laptop-plus').disabled = true
     }
 })
+
+// Minus button eventListener for iphone
+document.getElementById('iphone-minus').addEventListener('click',function(){
+    const laptopCount = document.getElementById('iphone-count')
+    let laptopCountValue = laptopCount.value;
+    if(laptopCountValue > 0){
+        laptopCountValue = laptopCountValue - 1
+        laptopCount.value = laptopCountValue
+        const laptopPrice = document.querySelector('#iphone-price')
+        const laptopPriceValue = laptopPrice.innerText
+        laptopPrice.innerText = parseFloat(laptopPriceValue) - 700
+        document.getElementById('iphone-plus').disabled = false;
+    }
+})
+
+// plus btn eventListener for iphone
+document.getElementById('iphone-plus').addEventListener('click',function(){
+    const laptopCount = document.getElementById('iphone-count')
+    let laptopCountText = laptopCount.value;
+    let laptopCountValue = parseFloat(laptopCountText)
+    laptopCountValue = laptopCountValue + 1
+    laptopCount.value = laptopCountValue
+    const laptopPrice = document.querySelector('#iphone-price')
+    const laptopPriceValue = laptopPrice.innerText
+    laptopPrice.innerText = parseFloat(laptopPriceValue) + 700
+    if(laptopCountValue >= 5){
+        document.getElementById('iphone-plus').disabled = true
+    }
+})
+
