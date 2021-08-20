@@ -55,9 +55,36 @@ document.getElementById('laptop-plus').addEventListener('click', function(){
 })
 
 
-// document.getElementById('phone-minus').addEventListener('click', function(){
-//     updateInputNumber('phone', false)
-// })
+document.getElementById('iphone-minus').addEventListener('click', function(){
+    const mobileCount = document.getElementById('iphone-count')
+    const mobileCountValue = mobileCount.value
+    const mobilePrice = document.getElementById('iphone-price')
+    const mobilePriceText = mobilePrice.innerText
+    const subTotal = document.getElementById('sub-total')
+    const subTotalText = subTotal.innerText
+    if(mobileCountValue > 0){ 
+        mobileCount.value = parseInt(mobileCountValue) - 1
+        mobilePrice.innerText = parseFloat(mobilePriceText) - 700
+        subTotal.innerText = parseFloat(subTotalText) - 700
+    }
+})
+
+document.getElementById('iphone-plus').addEventListener('click', function(){
+    const mobileCount = document.getElementById('iphone-count')
+    const mobileCountValue = mobileCount.value
+    const mobilePrice = document.getElementById('iphone-price')
+    const mobilePriceText = mobilePrice.innerText
+    const subTotal = document.getElementById('sub-total')
+    const subTotalText = subTotal.innerText
+    if(mobileCountValue < 5){ 
+        mobileCount.value = parseInt(mobileCountValue) + 1
+        mobilePrice.innerText = parseFloat(mobilePriceText) + 700
+        subTotal.innerText = parseFloat(subTotalText) + 700
+    }
+})
+
+
+
 
 // document.getElementById('laptop-plus').addEventListener('click', function(){
 //     updateInputNumber('phone', true)
