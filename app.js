@@ -18,5 +18,21 @@ document.getElementById('laptop-minus').addEventListener('click',function(){
         const laptopPrice = document.querySelector('#laptop-price')
         const laptopPriceValue = laptopPrice.innerText
         laptopPrice.innerText = parseFloat(laptopPriceValue) - 899
+        document.getElementById('laptop-plus').disabled = false;
+    }
+})
+
+// plus btn eventListener
+document.getElementById('laptop-plus').addEventListener('click',function(){
+    const laptopCount = document.getElementById('laptop-count')
+    let laptopCountText = laptopCount.value;
+    let laptopCountValue = parseFloat(laptopCountText)
+    laptopCountValue = laptopCountValue + 1
+    laptopCount.value = laptopCountValue
+    const laptopPrice = document.querySelector('#laptop-price')
+    const laptopPriceValue = laptopPrice.innerText
+    laptopPrice.innerText = parseFloat(laptopPriceValue) + 899
+    if(laptopCountValue >= 5){
+        document.getElementById('laptop-plus').disabled = true
     }
 })
