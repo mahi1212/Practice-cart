@@ -8,3 +8,15 @@ document.getElementById('add').addEventListener('click', function(){
     UL.appendChild(list);
 })
 
+// Minus button eventListener
+document.getElementById('laptop-minus').addEventListener('click',function(){
+    const laptopCount = document.getElementById('laptop-count')
+    let laptopCountValue = laptopCount.value;
+    if(laptopCountValue > 0){
+        laptopCountValue = laptopCountValue - 1
+        laptopCount.value = laptopCountValue
+        const laptopPrice = document.querySelector('#laptop-price')
+        const laptopPriceValue = laptopPrice.innerText
+        laptopPrice.innerText = parseFloat(laptopPriceValue) - 899
+    }
+})
