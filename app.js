@@ -8,62 +8,57 @@ document.getElementById('add').addEventListener('click', function(){
     UL.appendChild(list);
 })
 
-
-// Minus button eventListener
-document.getElementById('laptop-minus').addEventListener('click',function(){
+// function updateInputNumber(product, isIncreasing){
+//     const productInput = document.getElementById(product + '-plus')
+//     const productInputText = productInput.innerText
+    
+//     const productCount = document.getElementById(product + '-count')
+//     const productInputText = productInput.innerText
+    
+// }
+    
     const laptopCount = document.getElementById('laptop-count')
-    let laptopCountValue = laptopCount.value;
-    if(laptopCountValue > 0){
-        laptopCountValue = laptopCountValue - 1
-        laptopCount.value = laptopCountValue
-        const laptopPrice = document.querySelector('#laptop-price')
-        const laptopPriceValue = laptopPrice.innerText
-        laptopPrice.innerText = parseFloat(laptopPriceValue) - 899
-        document.getElementById('laptop-plus').disabled = false;
-    }
-})
+    const laptopCountValue = laptopCount.value
+    
+    const laptopPrice = document.getElementById('laptop-price')
+    const laptopPriceText = laptopPrice.innerText
 
-// plus btn eventListener
-document.getElementById('laptop-plus').addEventListener('click',function(){
+    const subTotal = document.getElementById('sub-total')
+    const subTotalText = subTotal.innerText
+
+document.getElementById('laptop-minus').addEventListener('click', function(){
     const laptopCount = document.getElementById('laptop-count')
-    let laptopCountText = laptopCount.value;
-    let laptopCountValue = parseFloat(laptopCountText)
-    laptopCountValue = laptopCountValue + 1
-    laptopCount.value = laptopCountValue
-    const laptopPrice = document.querySelector('#laptop-price')
-    const laptopPriceValue = laptopPrice.innerText
-    laptopPrice.innerText = parseFloat(laptopPriceValue) + 899
-    if(laptopCountValue >= 5){
-        document.getElementById('laptop-plus').disabled = true
+    const laptopCountValue = laptopCount.value
+    const laptopPrice = document.getElementById('laptop-price')
+    const laptopPriceText = laptopPrice.innerText
+    const subTotal = document.getElementById('sub-total')
+    const subTotalText = subTotal.innerText
+    if(laptopCountValue > 0){ 
+        laptopCount.value = parseInt(laptopCountValue) - 1
+        laptopPrice.innerText = parseFloat(laptopPriceText) - 899
+        subTotal.innerText = parseFloat(subTotalText) - 899
     }
 })
 
-// Minus button eventListener for iphone
-document.getElementById('iphone-minus').addEventListener('click',function(){
-    const laptopCount = document.getElementById('iphone-count')
-    let laptopCountValue = laptopCount.value;
-    if(laptopCountValue > 0){
-        laptopCountValue = laptopCountValue - 1
-        laptopCount.value = laptopCountValue
-        const laptopPrice = document.querySelector('#iphone-price')
-        const laptopPriceValue = laptopPrice.innerText
-        laptopPrice.innerText = parseFloat(laptopPriceValue) - 700
-        document.getElementById('iphone-plus').disabled = false;
+document.getElementById('laptop-plus').addEventListener('click', function(){
+    const laptopCount =document.getElementById('laptop-count')
+    const laptopCountValue = laptopCount.value
+    const laptopPrice = document.getElementById('laptop-price')
+    const laptopPriceText = laptopPrice.innerText
+    const subTotal = document.getElementById('sub-total')
+    const subTotalText = subTotal.innerText
+    if(laptopCountValue < 5){ 
+        laptopCount.value = parseInt(laptopCountValue) + 1
+        laptopPrice.innerText = parseFloat(laptopPriceText) + 899
+        subTotal.innerText = parseFloat(subTotalText) + 899
     }
 })
 
-// plus btn eventListener for iphone
-document.getElementById('iphone-plus').addEventListener('click',function(){
-    const laptopCount = document.getElementById('iphone-count')
-    let laptopCountText = laptopCount.value;
-    let laptopCountValue = parseFloat(laptopCountText)
-    laptopCountValue = laptopCountValue + 1
-    laptopCount.value = laptopCountValue
-    const laptopPrice = document.querySelector('#iphone-price')
-    const laptopPriceValue = laptopPrice.innerText
-    laptopPrice.innerText = parseFloat(laptopPriceValue) + 700
-    if(laptopCountValue >= 5){
-        document.getElementById('iphone-plus').disabled = true
-    }
-})
 
+// document.getElementById('phone-minus').addEventListener('click', function(){
+//     updateInputNumber('phone', false)
+// })
+
+// document.getElementById('laptop-plus').addEventListener('click', function(){
+//     updateInputNumber('phone', true)
+// })
