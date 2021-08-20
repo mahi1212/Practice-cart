@@ -53,7 +53,7 @@ document.getElementById('laptop-plus').addEventListener('click', function(){
         laptopPrice.innerText = parseFloat(laptopPriceText) + 899
         subTotal.innerText = parseFloat(subTotalText) + 899
         
-        const newSubTotal = parseFloat(subTotalText) + 700
+        const newSubTotal = parseFloat(subTotalText) + 899
         subTotal.innerText = newSubTotal;
         const newTax = Math.round(parseFloat(newSubTotal) / 10) 
         tax.innerText = newTax
