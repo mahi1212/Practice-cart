@@ -17,15 +17,8 @@ document.getElementById('add').addEventListener('click', function(){
     
 // }
     
-    const laptopCount = document.getElementById('laptop-count')
-    const laptopCountValue = laptopCount.value
-    
-    const laptopPrice = document.getElementById('laptop-price')
-    const laptopPriceText = laptopPrice.innerText
 
-    const subTotal = document.getElementById('sub-total')
-    const subTotalText = subTotal.innerText
-
+// laptop minus
 document.getElementById('laptop-minus').addEventListener('click', function(){
     const laptopCount = document.getElementById('laptop-count')
     const laptopCountValue = laptopCount.value
@@ -37,9 +30,15 @@ document.getElementById('laptop-minus').addEventListener('click', function(){
         laptopCount.value = parseInt(laptopCountValue) - 1
         laptopPrice.innerText = parseFloat(laptopPriceText) - 899
         subTotal.innerText = parseFloat(subTotalText) - 899
+        const total = document.getElementById('total')
+        const newSubTotal = parseFloat(subTotalText) - 899
+        subTotal.innerText = newSubTotal;
+        const newTax = Math.round(parseFloat(newSubTotal) / 20) 
+        tax.innerText = newTax
+        total.innerText = parseFloat(newTax) + parseFloat(newSubTotal)
     }
 })
-
+// laptop plus
 document.getElementById('laptop-plus').addEventListener('click', function(){
     const laptopCount =document.getElementById('laptop-count')
     const laptopCountValue = laptopCount.value
@@ -47,14 +46,22 @@ document.getElementById('laptop-plus').addEventListener('click', function(){
     const laptopPriceText = laptopPrice.innerText
     const subTotal = document.getElementById('sub-total')
     const subTotalText = subTotal.innerText
+    const total = document.getElementById('total')
+
     if(laptopCountValue < 5){ 
         laptopCount.value = parseInt(laptopCountValue) + 1
         laptopPrice.innerText = parseFloat(laptopPriceText) + 899
         subTotal.innerText = parseFloat(subTotalText) + 899
+        
+        const newSubTotal = parseFloat(subTotalText) + 700
+        subTotal.innerText = newSubTotal;
+        const newTax = Math.round(parseFloat(newSubTotal) / 10) 
+        tax.innerText = newTax
+        total.innerText = parseFloat(newTax) + parseFloat(newSubTotal)
     }
 })
 
-
+// iphone minus
 document.getElementById('iphone-minus').addEventListener('click', function(){
     const mobileCount = document.getElementById('iphone-count')
     const mobileCountValue = mobileCount.value
@@ -66,9 +73,15 @@ document.getElementById('iphone-minus').addEventListener('click', function(){
         mobileCount.value = parseInt(mobileCountValue) - 1
         mobilePrice.innerText = parseFloat(mobilePriceText) - 700
         subTotal.innerText = parseFloat(subTotalText) - 700
+        const total = document.getElementById('total')
+        const newSubTotal = parseFloat(subTotalText) - 700
+        subTotal.innerText = newSubTotal;
+        const newTax = Math.round(parseFloat(newSubTotal) / 20) 
+        tax.innerText = newTax
+        total.innerText = parseFloat(newTax) + parseFloat(newSubTotal)
     }
 })
-
+// iphone plus
 document.getElementById('iphone-plus').addEventListener('click', function(){
     const mobileCount = document.getElementById('iphone-count')
     const mobileCountValue = mobileCount.value
@@ -76,16 +89,15 @@ document.getElementById('iphone-plus').addEventListener('click', function(){
     const mobilePriceText = mobilePrice.innerText
     const subTotal = document.getElementById('sub-total')
     const subTotalText = subTotal.innerText
+    const total = document.getElementById('total')
     if(mobileCountValue < 5){ 
         mobileCount.value = parseInt(mobileCountValue) + 1
         mobilePrice.innerText = parseFloat(mobilePriceText) + 700
-        subTotal.innerText = parseFloat(subTotalText) + 700
+        
+        const newSubTotal = parseFloat(subTotalText) + 700
+        subTotal.innerText = newSubTotal;
+        const newTax = Math.round(parseFloat(newSubTotal) / 10) 
+        tax.innerText = newTax
+        total.innerText = parseFloat(newTax) + parseFloat(newSubTotal)
     }
 })
-
-
-
-
-// document.getElementById('laptop-plus').addEventListener('click', function(){
-//     updateInputNumber('phone', true)
-// })
